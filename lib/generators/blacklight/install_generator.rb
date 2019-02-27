@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Blacklight
   class Install < Rails::Generators::Base
     source_root File.expand_path('../templates', __FILE__)
@@ -72,7 +73,8 @@ module Blacklight
     end
 
     def add_sass_configuration
-      insert_into_file "config/application.rb", after: "config.assets.enabled = true" do <<EOF
+      insert_into_file "config/application.rb", after: "config.assets.enabled = true" do
+        <<EOF
       # Default SASS Configuration, check out https://github.com/rails/sass-rails for details
       config.assets.compress = !Rails.env.development?
 EOF
