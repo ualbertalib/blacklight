@@ -150,7 +150,7 @@ module Blacklight::FacetsHelperBehavior
     content_tag(:span, :class => "facet-label") do
       content_tag(:span, facet_display_value(facet_field, item), :class => "selected") +
       # remove link
-      link_to(content_tag(:span, '', :class => "glyphicon glyphicon-remove") + content_tag(:span, '[remove]', :class => 'sr-only'), search_action_path(remove_facet_params(facet_field, item, params)), :class=>"remove")
+      link_to(content_tag(:span, '✖', :class => "remove-icon") + content_tag(:span, '[remove]', :class => 'sr-only'), search_action_path(remove_facet_params(facet_field, item, params)), :class=>"remove")
     end + render_facet_count(item.hits, :classes => ["selected"])
   end
 

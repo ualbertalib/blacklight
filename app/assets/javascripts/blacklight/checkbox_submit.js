@@ -42,14 +42,13 @@
         //for both bookmarks/$doc_id.  But let's take out the irrelevant parts
         //of the form to avoid any future confusion. 
         form.find("input[type=submit]").remove();
-        form.addClass('form-horizontal');
         
         //View needs to set data-doc-id so we know a unique value
         //for making DOM id
         var unique_id = form.attr("data-doc-id") || Math.random();
         // if form is currently using method delete to change state, 
         // then checkbox is currently checked
-        var checked = (form.find("input[name=_method][value=delete]").size() != 0);
+        var checked = (form.find("input[name=_method][value=delete]").length != 0);
             
         var checkbox = $('<input type="checkbox">')	    
           .addClass( options.css_class )

@@ -24,7 +24,6 @@ else
     gem 'responders', "~> 2.0"
     gem 'sass-rails', ">= 5.0"
   else
-    gem 'bootstrap-sass', '< 3.3.5' # 3.3.5 requires sass 3.3, incompatible with sass-rails 4.x
     gem 'sass-rails', "< 5.0"
   end
 end
