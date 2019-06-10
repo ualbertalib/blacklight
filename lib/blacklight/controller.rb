@@ -61,7 +61,7 @@ module Blacklight::Controller
     end
 
     def search_facet_url options = {}
-      url_for params.merge(action: "facet").merge(options).except(:page)
+      url_for params.merge(action: "facet", only_path: true).merge(options).except(:page)
     end
 
     # Returns a list of Searches from the ids in the user's history.
