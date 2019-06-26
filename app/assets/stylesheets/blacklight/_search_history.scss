@@ -4,9 +4,9 @@
 
   .constraint 
   {
+    @extend .px-3;
     display: block;
-    text-indent: -$padding-large-horizontal;
-    padding-left: $padding-large-horizontal;
+    text-indent: -1 * map-get($spacers, 3);
 
   }
 

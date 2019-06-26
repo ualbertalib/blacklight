@@ -12,7 +12,7 @@
 //= require blacklight/collapsable
 //
 //Bootstrap JS for providing collapsable tablet/mobile menu/alert boxes
-//= require bootstrap/transition
+//= require bootstrap/util
 //= require bootstrap/collapse
 //= require bootstrap/dropdown
 //= require bootstrap/alert

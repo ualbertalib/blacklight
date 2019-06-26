@@ -1,10 +1,10 @@
-<div class="page-header row">
+<div class="row">
   <h1 class="col-md-8 page-heading"><%= t('blacklight.welcome') %></h1>
   
-  <ul class="nav nav-pills col-md-4">
-    <li><a href="https://github.com/projectblacklight/blacklight/">Github</a></li>
-    <li><a href="https://github.com/projectblacklight/blacklight/wiki">Wiki</a></li>
-    <li><a href="https://github.com/projectblacklight/blacklight/releases/tag/v<%= Blacklight::VERSION %>">Release Notes</a></li>
+  <ul class="nav-pills col-md-4">
+    <li class="nav-item"><a class="nav-link" href="https://github.com/projectblacklight/blacklight/">Github</a></li>
+    <li class="nav-item"><a class="nav-link" href="https://github.com/projectblacklight/blacklight/wiki">Wiki</a></li>
+    <li class="nav-item"><a class="nav-link" href="https://github.com/projectblacklight/blacklight/releases/tag/v<%= Blacklight::VERSION %>">Release Notes</a></li>
   </ul>
 
 
@@ -29,7 +29,7 @@ to your own application: <br />
 <%# This is the same panel shown in the Rails welcome template %>
 <div id="about">
   <h3 class='section-heading'><a href="/rails/info/properties">About your application&rsquo;s environment</a></h3>
-  <div id="about-content" class="well" style="display: none"></div>
+  <div id="about-content" class="card" style="display: none"></div>
 </div>
 
 <script>

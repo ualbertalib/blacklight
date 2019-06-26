@@ -1,47 +1,71 @@
-#sidebar, #facets {
-  @extend .clearfix;
-  padding-bottom: $padding-large-vertical;
+.sidenav {
+  .navbar-toggler {
+    border-color: $navbar-light-toggler-border-color;
+    color: $navbar-light-active-color;
+
+    @include hover-focus {
+      color: $navbar-light-active-color;
+    }
+  }
+
+  .navbar-toggler-icon {
+    background-image: $navbar-light-toggler-icon-bg;
+  }
 }
 
-.no-js {
-  #sidebar .collapse {
-    @extend .in;
-  }  
+.facets-toggleable {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    &#{$infix} {
+      @include media-breakpoint-up($next) {
+
+        // scss-lint:disable ImportantRule
+        .facets-collapse {
+          display: block !important;
+          width: 100%;
+        }
+        // scss-lint:enable ImportantRule
+
+        .navbar-toggler {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
-.facet_limit-active {
-  @extend .panel-success;
+.facets-heading {
+  @extend .h4;
+  line-height: inherit;
 }
 
-#facet-panel-collapse {
-  @extend .navbar-collapse;
-  padding-left: 0;
-  padding-right: 0;
-  border-top: none;
-  box-shadow: none;
-  max-height: none;
+.facet-limit {
+  margin-bottom: $spacer;
+
+  .card-body {
+    padding: $spacer;
+  }
 }
 
-.facets-toggle {
-  @extend .navbar-toggle;
-  @extend .btn;
-  @extend .btn-default;
+.facet-limit-active {
+  @extend .border-success;
 
-  border-color: $navbar-default-toggle-border-color;
-
-  .icon-bar {
-    background-color: $navbar-default-toggle-icon-bar-bg;
+  .card-header {
+    @extend .bg-success;
   }
 }
 
 .facet-values {
   display: table;
+  table-layout: fixed;
   width: 100%;
+  margin-bottom: 0;
 
   li {
 
     display: table-row;
-
     .selected {
       @extend .text-success;
     }
@@ -49,44 +73,29 @@
   }
 
   .remove {
-    @extend .text-muted;
-    text-indent: $padding-base-horizontal;
-
-    .glyphicon {
-      top: 0.1em;
-      vertical-align: text-top;
-    }
+    color: $text-muted;
+    font-weight: bold;
+    padding-left: $spacer / 2;
 
     &:hover {
-      color: $brand-danger;
+      color: theme-color("danger");
+      text-decoration: none;
     }
-
   }
 
   @mixin hyphens-auto {
-    // breaks long words apart so they don't cause the containing div to
-    // be too big
-    // from http://kenneth.io/blog/2012/03/04/word-wrapping-hypernation-using-css/
-    -ms-word-break: break-all;
-    word-break: break-all;
-
-    // Non standard for webkit
-    word-break: break-word;
-
+    overflow-wrap: break-word;
     -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
+    -o-hyphens: auto;
     hyphens: auto;
   }
 
   .facet-label {
     display: table-cell;
     padding-right: 1em;
-
     text-indent: -15px;
     padding-left: 15px;
-    padding-bottom: $padding-base-vertical;
-
+    padding-bottom: $spacer / 2;
     @include hyphens-auto;
   }
 
@@ -94,67 +103,36 @@
     display: table-cell;
     vertical-align: top;
     text-align: right;
+    width: 5em;
   }
 }
 
-.facet_extended_list
-{
-  .sort_options
-  {
+.facet-extended-list {
+  .sort-options {
     text-align:right;
   }
 
-
-  .prev_next_links
-  {
+  .prev-next-links {
     float:left;
   }
-
 }
 
-/* deprecated in Blacklight 5.x */
-ul.facet_extended_list, .facet_extended_list ul
-{
-  @extend .list-unstyled;
+.facet-field-heading {
+  @extend .h6;
 
-}
-
-.collapse-toggle {
-  cursor: pointer;
-}
-
-.panel-heading.collapse-toggle .panel-title:after {
-    /* symbol for "opening" panels */
-    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
-    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
-    float: right;        /* adjust as needed */
-    color: grey;         /* adjust as needed */
-    font-size: 0.8em;
-    line-height: normal;
-}
-.panel-heading.collapse-toggle.collapsed .panel-title:after {
-    /* symbol for "collapsed" panels */
-    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+  a {
+    color: inherit;
+  }
 }
 
 /* Sidenav
 -------------------------------------------------- */
 
-.facet_pagination {
+.facet-pagination {
   @extend .clearfix;
-}
 
-
-@media (max-width: $grid-float-breakpoint) {
-
-  .facets-toggle {
-    margin-top: 3px;
-  }
-
-  #facets .top-panel-heading {
-    border: 1px solid $breadcrumb-color;
-    margin-bottom: 1em;
-    @include border-bottom-radius($panel-border-radius - 1);
+  &.top {
+    padding: $modal-inner-padding;
   }
 }
 
@@ -165,7 +143,7 @@ ul.facet_extended_list, .facet_extended_list ul
 
   ul, .pivot-facet {
     @extend .list-unstyled;
-    padding-bottom: $padding-base-vertical;
-    padding-left: $padding-large-horizontal;
+    @extend .py-1;
+    @extend .px-3;
   }
 }
