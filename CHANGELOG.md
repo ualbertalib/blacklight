@@ -8,3 +8,6 @@ and releases in blacklight project adheres to [Semantic Versioning](http://semve
 
 ### Fixed
 - 'more' link to view modal isn't working [1659](https://github.com/ualbertalib/discovery/issues/1659)
+
+### Changed
+- Upgrade to Bootstrap 4 [#1](https://github.com/ualbertalib/blacklight/issues/1)

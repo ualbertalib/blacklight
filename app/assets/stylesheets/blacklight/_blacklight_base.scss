@@ -8,11 +8,11 @@
 
 @import 'blacklight/blacklight_defaults';
 
-@import "blacklight/layout";
+@import "blacklight/bootstrap_overrides";
 @import "blacklight/header";
 @import "blacklight/catalog";
+@import "blacklight/pagination";
 @import "blacklight/group";
-@import "blacklight/bookmark";
 @import "blacklight/facets";
 @import "blacklight/search_history";
 @import "blacklight/modal";
