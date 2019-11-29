@@ -6,6 +6,9 @@ and releases in blacklight project adheres to [Semantic Versioning](http://semve
 
 ## [Unreleased]
 
+### Added
+- a changelog entry to demo our git workflow [100](issues/100) 
+
 ### Fixed
 - 'more' link to view modal isn't working [1659](https://github.com/ualbertalib/discovery/issues/1659)
 
