@@ -103,7 +103,7 @@ module Blacklight::Document
     val = fetch(key, opts[:default])
 
     if val.is_a?(Array) and opts[:sep]
-      Deprecation.warn(Blacklight::Solr::Document, "#{self.class}#get with a :sep option is deprecated; use #[] or #fetch and join the values using e.g. Array#to_sentence") unless opts[:sep].nil?
+      # Deprecation.warn(Blacklight::Solr::Document, "#{self.class}#get with a :sep option is deprecated; use #[] or #fetch and join the values using e.g. Array#to_sentence") unless opts[:sep].nil?
       val.join(opts[:sep])
     else
       val

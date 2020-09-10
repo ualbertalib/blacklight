@@ -135,7 +135,7 @@ module Blacklight::SearchHelper
       fetch_many(id, params, extra_controller_params)
     else
       if id.nil?
-        Deprecation.warn Blacklight::SearchHelper, "Calling #fetch without an explicit id argument is deprecated and will be removed in Blacklight 6.0"
+        # Deprecation.warn Blacklight::SearchHelper, "Calling #fetch without an explicit id argument is deprecated and will be removed in Blacklight 6.0"
         id ||= params[:id]
       end
       fetch_one(id, extra_controller_params)
@@ -265,7 +265,7 @@ module Blacklight::SearchHelper
     # @overload fetch_many(ids, user_params, extra_controller_params)
     def fetch_many(ids=[], *args)
       if args.length == 1
-        Deprecation.warn(Blacklight::SearchHelper, "fetch_many with 2 arguments is deprecated")
+        # Deprecation.warn(Blacklight::SearchHelper, "fetch_many with 2 arguments is deprecated")
         user_params = params
         extra_controller_params = args.first || {}
       else
@@ -293,7 +293,7 @@ module Blacklight::SearchHelper
       end
 
       if default_solr_doc_params(id) != old_solr_doc_params
-        Deprecation.warn Blacklight::SearchHelper, "The #solr_doc_params method is deprecated. Instead, you should provide a custom SolrRepository implementation for the additional behavior you're offering. The current behavior will be removed in Blacklight 6.0"
+        # Deprecation.warn Blacklight::SearchHelper, "The #solr_doc_params method is deprecated. Instead, you should provide a custom SolrRepository implementation for the additional behavior you're offering. The current behavior will be removed in Blacklight 6.0"
         extra_controller_params = extra_controller_params.merge(old_solr_doc_params)
       end
 
