@@ -40,5 +40,9 @@ rails generate blacklight:install
 
 In addition, you must have the Bundler and Rails 4.0 gems installed. Other gem dependencies are defined in the blacklight.gemspec file and will be automatically loaded by Bundler.
 
+Specify the version of rails `export RAILS_VERSION=4.2.11.3`
+Install a compatable bundler `gem install bundler -v 1.17.3`
+Use compatable bundler `bundle _1.17.3_ install`
+
 ## Configuring Apache Solr 
 You'll also want some information about how Blacklight expects [Apache Solr](http://lucene.apache.org/solr ) to run, which you can find in [README_SOLR](https://github.com/projectblacklight/blacklight/wiki/README_SOLR)
