@@ -66,7 +66,7 @@ module Blacklight::ConfigurationHelperBehavior
       :"blacklight.search.fields.index.#{field}",
       :"blacklight.search.fields.#{field}",
       (field_config.label if field_config),
-      field.to_s.humanize
+      h(field.to_s.humanize)
     )
   end
 
@@ -79,7 +79,7 @@ module Blacklight::ConfigurationHelperBehavior
       :"blacklight.search.fields.show.#{field}",
       :"blacklight.search.fields.#{field}",
       (field_config.label if field_config),
-      field.to_s.humanize
+      h(field.to_s.humanize)
     )
   end
 
@@ -89,7 +89,7 @@ module Blacklight::ConfigurationHelperBehavior
     field_config = blacklight_config.facet_fields[field]
     defaults = [:"blacklight.search.fields.facet.#{field}", :"blacklight.search.fields.#{field}"]
     defaults << field_config.label if field_config
-    defaults << field.to_s.humanize
+    defaults << h(field.to_s.humanize)
 
     field_label *defaults
   end
@@ -101,7 +101,7 @@ module Blacklight::ConfigurationHelperBehavior
       :"blacklight.search.view.#{view}",
       view_config.label,
       view_config.title,
-      view.to_s.humanize
+      h(view.to_s.humanize)
     )
   end
 
@@ -120,6 +120,7 @@ module Blacklight::ConfigurationHelperBehavior
   def field_label *i18n_keys
     first, *rest = i18n_keys.compact
 
+    # re: CVE-2020-15169 need to target just the user input see calling methods
     t(first, default: rest)
   end
   alias_method :solr_field_label, :field_label

@@ -6,6 +6,9 @@ and releases in blacklight project adheres to [Semantic Versioning](http://semve
 
 ## [Unreleased]
 
+### Security
+-  manually escaping default translations for [CVE-2020-15169](https://groups.google.com/forum/#!topic/rubyonrails-security/b-C9kSGXYrc)
+
 ### Fixed
 - 'more' link to view modal isn't working [1659](https://github.com/ualbertalib/discovery/issues/1659)
 
