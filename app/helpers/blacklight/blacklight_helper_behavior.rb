@@ -264,7 +264,7 @@ module Blacklight::BlacklightHelperBehavior
     tag_or_document = args.first
 
     if tag_or_document.is_a? String or tag_or_document.is_a? Symbol
-      Deprecation.warn(Blacklight::BlacklightHelperBehavior, "#render_document_heading with a tag argument is deprecated; pass e.g. `tag: :h4` instead")
+      # Deprecation.warn(Blacklight::BlacklightHelperBehavior, "#render_document_heading with a tag argument is deprecated; pass e.g. `tag: :h4` instead")
       tag = tag_or_document
       document = @document
     else
@@ -347,7 +347,7 @@ module Blacklight::BlacklightHelperBehavior
   # @param [Symbol, Proc, String] field Render the given field or evaluate the proc or render the given string
   def render_document_index_label doc, field, opts = {}
     if field.is_a? Hash
-      Deprecation.warn self, "Calling render_document_index_label with a hash is deprecated"
+      # Deprecation.warn self, "Calling render_document_index_label with a hash is deprecated"
       field = field[:label]
     end
     presenter(doc).render_document_index_label field, opts

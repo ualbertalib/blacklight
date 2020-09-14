@@ -22,7 +22,7 @@ namespace :blacklight do
 
   namespace :solr do
     task :seed do
-      Deprecation.warn Blacklight, "blacklight:solr:seed is deprecated; use blacklight:index:seed instead"
+      # Deprecation.warn Blacklight, "blacklight:solr:seed is deprecated; use blacklight:index:seed instead"
       Rake::Task['blacklight:index:seed'].invoke
     end
   end

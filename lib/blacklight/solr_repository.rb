@@ -1,7 +1,7 @@
 module Blacklight
   class SolrRepository < AbstractRepository
     unless defined? RSolr
-      Deprecation.warn self, "RSolr should be in your gemfile. Blacklight 6.0 will not load rsolr by default"
+      # Deprecation.warn self, "RSolr should be in your gemfile. Blacklight 6.0 will not load rsolr by default"
       require 'rsolr'
     end
 

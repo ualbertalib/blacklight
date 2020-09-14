@@ -11,3 +11,4 @@ and releases in blacklight project adheres to [Semantic Versioning](http://semve
 
 ### Changed
 - Upgrade to Bootstrap 4 [#1](https://github.com/ualbertalib/blacklight/issues/1)
+- Commented out all deprecation warnings [1958](https://github.com/ualbertalib/discovery/issues/1958)

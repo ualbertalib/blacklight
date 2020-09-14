@@ -40,7 +40,7 @@ module Blacklight::RenderPartialsHelper
   # @param [Hash] locales to pass through to the partials
   def render_document_partial(doc, base_name, locals = {})
     format = if method(:document_partial_name).arity == 1
-      Deprecation.warn self, "The #document_partial_name with a single argument is deprecated. Update your override to include a second argument for the 'base name'"
+      # Deprecation.warn self, "The #document_partial_name with a single argument is deprecated. Update your override to include a second argument for the 'base name'"
       document_partial_name(doc)
     else
       document_partial_name(doc, base_name)

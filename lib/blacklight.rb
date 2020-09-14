@@ -65,7 +65,7 @@ module Blacklight
   end
 
   def self.solr
-    Deprecation.warn Blacklight, "Blacklight.solr is deprecated and will be removed in 6.0.0. Use Blacklight.default_index.connection instead", caller
+    # Deprecation.warn Blacklight, "Blacklight.solr is deprecated and will be removed in 6.0.0. Use Blacklight.default_index.connection instead", caller
     default_index.connection
   end
 
@@ -74,7 +74,7 @@ module Blacklight
   end
 
   def self.solr_config
-    Deprecation.warn Blacklight, "Blacklight.solr_config is deprecated and will be removed in 6.0.0. Use Blacklight.connection_config instead", caller
+    # Deprecation.warn Blacklight, "Blacklight.solr_config is deprecated and will be removed in 6.0.0. Use Blacklight.connection_config instead", caller
     connection_config
   end
 
@@ -92,7 +92,7 @@ module Blacklight
     return @blacklight_yml if @blacklight_yml
     unless File.exists?(blacklight_config_file)
       if File.exists?(solr_file)
-        Deprecation.warn Blacklight, "Configuration is now done via blacklight.yml. Suppport for solr.yml will be removed in blacklight 6.0.0"
+        # Deprecation.warn Blacklight, "Configuration is now done via blacklight.yml. Suppport for solr.yml will be removed in blacklight 6.0.0"
         return solr_yml
       else
         raise "You are missing a configuration file: #{blacklight_config_file}. Have you run \"rails generate blacklight:install\"?"

@@ -120,7 +120,7 @@ module Blacklight
     # Opensearch autocomplete parameters for plucking a field's value from the results
     def solr_opensearch_params(field=nil)
       if field.nil?
-        Deprecation.warn(Blacklight::RequestBuilders, "Calling Blacklight::RequestBuilders#solr_opensearch_params without a field name is deprecated and will be required in Blacklight 6.0.")
+        # Deprecation.warn(Blacklight::RequestBuilders, "Calling Blacklight::RequestBuilders#solr_opensearch_params without a field name is deprecated and will be required in Blacklight 6.0.")
       end
 
       solr_params = {}

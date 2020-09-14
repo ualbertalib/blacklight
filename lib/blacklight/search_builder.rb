@@ -104,7 +104,7 @@ module Blacklight
     # @return [Blacklight::SolrResponse] the solr response object
     def to_hash method_extra_params = nil
       unless method_extra_params.nil?
-        Deprecation.warn(Blacklight::SearchBuilder, "Calling SearchBuilder#query with extra parameters is deprecated. Use #merge(Hash) instead")
+        # Deprecation.warn(Blacklight::SearchBuilder, "Calling SearchBuilder#query with extra parameters is deprecated. Use #merge(Hash) instead")
         merge(method_extra_params)
       end
 
@@ -140,7 +140,7 @@ module Blacklight
       request.tap do |request_parameters|
         processor_chain.each do |method_name|
           if scope.respond_to?(method_name, true)
-            Deprecation.warn Blacklight::SearchBuilder, "Building search parameters by calling #{method_name} on #{scope.class}. This behavior will be deprecated in Blacklight 6.0. Instead, define #{method_name} on a subclass of #{self.class} and set search_builder_class in the configuration"
+            # Deprecation.warn Blacklight::SearchBuilder, "Building search parameters by calling #{method_name} on #{scope.class}. This behavior will be deprecated in Blacklight 6.0. Instead, define #{method_name} on a subclass of #{self.class} and set search_builder_class in the configuration"
             scope.send(method_name, request_parameters, blacklight_params)
           else
             send(method_name, request_parameters)

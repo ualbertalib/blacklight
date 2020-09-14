@@ -30,7 +30,7 @@ module Blacklight::UrlHelperBehavior
     if field_or_opts.is_a? Hash
       opts = field_or_opts
       if opts[:label]
-        Deprecation.warn self, "The second argument to link_to_document should now be the label."
+        # Deprecation.warn self, "The second argument to link_to_document should now be the label."
         field = opts.delete(:label)
       end
     else
@@ -301,11 +301,11 @@ module Blacklight::UrlHelperBehavior
   # This method should move to BlacklightMarc in Blacklight 6.x
   def refworks_export_url params = {}
     if params.is_a? ::SolrDocument or (params.nil? and instance_variable_defined? :@document)
-      Deprecation.warn self, "Calling #refworks_export_url without a :url is deprecated. Pass in e.g. { url: url_for_document(@document, format: :refworks_marc_txt) } instead"
+      # Deprecation.warn self, "Calling #refworks_export_url without a :url is deprecated. Pass in e.g. { url: url_for_document(@document, format: :refworks_marc_txt) } instead"
       url = url_for_document(params || @document)
       params = { url: polymorphic_url(url, format: :refworks_marc_txt, only_path: false) }
     elsif params[:id]
-      Deprecation.warn self, "Calling #refworks_export_url without a :url is deprecated. Pass in e.g. { url: url_for_document(@document, format: :refworks_marc_txt) } instead"
+      # Deprecation.warn self, "Calling #refworks_export_url without a :url is deprecated. Pass in e.g. { url: url_for_document(@document, format: :refworks_marc_txt) } instead"
       params = { url: polymorphic_url(url_for_document(params), format: :refworks_marc_txt, only_path: false) }
     end
 
