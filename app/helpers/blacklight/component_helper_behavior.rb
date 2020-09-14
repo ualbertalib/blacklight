@@ -2,7 +2,7 @@ module Blacklight
   module ComponentHelperBehavior
 
     def document_action_label action, opts
-      t("blacklight.tools.#{action}", default: opts.label || action.to_s.humanize)
+      t("blacklight.tools.#{action}", default: h(opts.label || action.to_s.humanize))
     end
 
     def document_action_path action_opts, url_opts = nil
